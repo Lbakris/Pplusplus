@@ -1,0 +1,46 @@
+<div class="pingponglogo">
+  <h3>Ping</h3> <img id="logo" src="/assets/PingPongLogo2.png" alt="" /><h3>Pong</h3>
+</div>
+  <div class="wrapper">
+    <div class="box box1">
+      <% if session['id'] == 1 %>
+      <a class="logins links" href="/log">Login</a>
+      <img id="net" src="/assets/net2.jpg" alt="" />
+      <a href="/reg" class="links">Register</a>
+      <% end %>
+      <% if session['id'] == 2 %>
+        <h2>Register</h2>
+        <form class="" action="index.html" method="post">
+          <p>First Name: <input type="text" name="first_name" value=""></p>
+          <p>Last Name: <input type="text" name="last_name" value=""></p>
+          <p>Email: <input type="text" name="email" value=""></p>
+          <p>Pin: <input type="text" name="" value=""></p>
+          <p>Password: <input type="password" name="password" value=""></p>
+          <p>Confirm Password: <input type="password" name="password_confirmation" value=""></p>
+        </form>
+        <br>
+        <a href="/reset" id="reset">Reset</a>
+      <% end %>
+      <% if session['id'] == 3 %>
+      <form class="" action="/fight" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <p>Pin:</p>
+        <input type="text" name="pin" value="">
+        <br>
+        <input type="submit" value="Begin">
+      </form>
+      <% end %>
+    </div>
+    <div class="box box2">
+      <% if session['id2'] == 10 %>
+      <a class="logins links" href="#">Login</a>
+      <img id="net" src="/assets/net2.jpg" alt="" />
+      <a href="/reg2" class="links">Register</a>
+      <a id="go" href="/go">Go</a>
+      <% end %>
+      <% if session['id2'] == 11 %>
+      <h1>Register</h1>
+      <a href="/rst2">Reset</a>
+      <% end %>
+    </div>
+  </div>
