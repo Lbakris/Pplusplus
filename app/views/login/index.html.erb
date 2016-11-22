@@ -1,10 +1,8 @@
 <script>
   $(document).ready(function(){
-
     $(document).on('click', '#loginButton1', function(){
       $('#box1').html('<form class="" action="/log" method="post"><input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"><p>Pin:</p><input type="text" name="player[pin]" value=""><br><input type="submit" value="Begin"></form><button id="reset1">Reset</button>')
     });
-
     $(document).on('click', '#registerButton1', function(){
       $('#box1').html("<h2>Register</h2><form class='' action='/reg' method='post'><input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'><p>First Name:<input type='text' name='player[first_name]' value=''></p><p>Last Name:<input type='text' name='player[last_name]' value=''></p><p>Email:<input type='text' name='player[email]' value=''></p><p>Pin:<input type='text' name='player[pin]' value=''></p><input type='submit' name='submit' value='Register'></form><button id='reset1'>Reset</button>")
     });
@@ -36,7 +34,6 @@
         <img id="net" src="/assets/net2.jpg" alt=""/>
         <button type="button" id='registerButton1'>Register</button>
     </div>
-
     <div id="box2">
       <button type="button" id='loginButton2'>Login</button>
       <img id="net" src="/assets/net2.jpg" alt=""/>
