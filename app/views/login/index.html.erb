@@ -1,60 +1,45 @@
+<script>
+  $(document).ready(function(){
+
+    $(document).on('click', '#loginButton1', function(){
+      $('#box1').html('<form class="" action="/log" method="post"><input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"><p>Pin:</p><input type="text" name="player[pin]" value=""><br><input type="submit" value="Begin"></form><button id="reset1">Reset</button>')
+    });
+
+    $(document).on('click', '#registerButton1', function(){
+      $('#box1').html("<h2>Register</h2><form class='' action='/reg' method='post'><input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'><p>First Name:<input type='text' name='player[first_name]' value=''></p><p>Last Name:<input type='text' name='player[last_name]' value=''></p><p>Email:<input type='text' name='player[email]' value=''></p><p>Pin:<input type='text' name='player[pin]' value=''></p><input type='submit' name='submit' value='Register'></form><button id='reset1'>Reset</button>")
+    });
+
+    $(document).on('click', '#reset1', function(){
+      $('#box1').html("<button type='button' id='loginButton1'>Login</button><img id='net' src='/assets/net2.jpg' alt=''/><button type='button' id='registerButton1'>Register</button>")
+      });
+
+    $(document).on('click', '#loginButton2', function(){
+      $('#box2').html('<form class="" action="/log" method="post"><input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"><p>Pin:</p><input type="text" name="player[pin]" value=""><br><input type="submit" value="Begin"></form><button id="reset2">Reset</button>')
+    });
+
+    $(document).on('click', '#registerButton2', function(){
+      $('#box2').html("<h2>Register</h2><form class='' action='/reg' method='post'><input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'><p>First Name:<input type='text' name='player[first_name]' value=''></p><p>Last Name:<input type='text' name='player[last_name]' value=''></p><p>Email:<input type='text' name='player[email]' value=''></p><p>Pin:<input type='text' name='player[pin]' value=''></p><input type='submit' name='submit' value='Register'></form><button id='reset2'>Reset</button>")
+    });
+    $(document).on('click', '#reset2', function(){
+      $('#box2').html("<button type='button' id='loginButton2'>Login</button><img id='net' src='/assets/net2.jpg' alt=''/><button type='button' id='registerButton2'>Register</button>")
+      });
+  })
+</script>
 <div class="pingponglogo">
-  <audio autoplay>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-  <h3>Ping</h3> <img id="logo" src="/assets/PingPongLogo2.png" alt="" /><h3>Pong</h3>
+    <h3>Ping</h3>
+    <img id="logo" src="/assets/PingPongLogo2.png" alt=""/>
+    <h3>Pong</h3>
 </div>
-  <div class="wrapper">
-    <div class="box box1">
-      <% if session['id'] == 1 %>
-      <a class="logins links" href="/log">Login</a>
-      <img id="net" src="/assets/net2.jpg" alt="" />
-      <a href="/reg" class="links">Register</a>
-      <% end %>
-      <% if session['id'] == 2 %>
-        <h2>Register</h2>
-        <form class="" action="index.html" method="post">
-          <p>First Name: <input type="text" name="first_name" value=""></p>
-          <p>Last Name: <input type="text" name="last_name" value=""></p>
-          <p>Email: <input type="text" name="email" value=""></p>
-          <p>Pin: <input type="text" name="" value=""></p>
-        </form>
-        <br>
-        <a href="/reset" id="reset">Reset</a>
-      <% end %>
-      <% if session['id'] == 3 %>
-      <form class="" action="/fight" method="post">
-        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-        <p>Pin:</p>
-        <input type="text" name="pin" value="">
-        <br>
-        <input type="submit" value="Begin">
-      </form>
-      <a href="/reset" id="reset">Reset</a>
-      <% end %>
+<div class="container">
+    <div id="box1">
+        <button type="button" id='loginButton1'>Login</button>
+        <img id="net" src="/assets/net2.jpg" alt=""/>
+        <button type="button" id='registerButton1'>Register</button>
     </div>
 
-
-    <!-- This is just a break in the code so we can visually see where the divider is between the two boxs are -->
-
-
-    <div class="box box2">
-      <% if session['id2'] == 10 %>
-      <a class="logins links" href="#">Login</a>
-      <img id="net" src="/assets/net2.jpg" alt="" />
-      <a href="/reg2" class="links">Register</a>
-      <a id="go" href="/go">Go</a>
-      <% end %>
-      <% if session['id2'] == 11 %>
-      <h1>Register</h1>
-      <form class="" action="index.html" method="post">
-        <p>First Name: <input type="text" name="first_name" value=""></p>
-        <p>Last Name: <input type="text" name="last_name" value=""></p>
-        <p>Email: <input type="text" name="email" value=""></p>
-        <p>Pin: <input type="text" name="" value=""></p>
-      </form>
-      <br>
-      <a href="/rst2">Reset</a>
-      <% end %>
+    <div id="box2">
+      <button type="button" id='loginButton2'>Login</button>
+      <img id="net" src="/assets/net2.jpg" alt=""/>
+      <button type="button" id='registerButton2'>Register</button>
     </div>
-  </div>
+</div>

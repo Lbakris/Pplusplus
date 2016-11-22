@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres #default if not created
-  password: password
+  # username: postgres #default if not created
+  # password: password
   pool: 5
 
 development:
@@ -16,7 +16,7 @@ test:
 production:
   <<: *default
   database: ping_pong_production
-  username: postgres
+  # username: postgres
   password: <%= ENV['PING_PONG_DATABASE_PASSWORD'] %>
 
 # Vagrant configuration
