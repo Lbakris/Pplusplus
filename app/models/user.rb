@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   has_many :winners, :class_name => "Match"
 
   validates :first_name, :last_name, presence: true, length: {minimum: 2}
-  validates :pin, numericality: {only_integer: true, greater_than: 999, less_than: 10000}
+  validates :pin, numericality: {only_integer: true, greater_than: 999, less_than: 10000}, uniqueness: true
 end
