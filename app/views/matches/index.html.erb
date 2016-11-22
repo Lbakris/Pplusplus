@@ -1,0 +1,42 @@
+<script type="text/javascript">
+ $(document).ready(function(){
+   document.addEventListener("keydown", function(e){
+     var key = e.which || e.keyCode;
+     var player_1_score = 0;
+     var player_2_score = 0;
+     if (key == 81){
+       alert("Pressed q")
+       player_1_score += 1;
+       $('#player_1_score').html(player_1_score)
+     }
+     if (key == 65){
+       alert("Pressed a")
+       player_1_score -= 1;
+     }
+     if (key == 80){
+       alert("Pressed p")
+     }
+     if (key == 76){
+       alert("Pressed l")
+     }
+   })
+   $(document).on("keydown", '#player_1_score', function(e){
+     var key = e.which || e.keyCode;
+     if (key == 81){
+       alert("Pressed q")
+       player_1_score += 1;
+       $(this).html(player_1_score)
+     }
+   })
+ })
+</script>
+<div class="wrapper">
+  <div class="box box1">
+    <h1>User 1</h1>
+    <h4 id="player_1_score">0</h4>
+  </div>
+  <div class="box box2" >
+    <h3>User 2</h3>
+    <h4 id="player_2_score">0</h4>
+  </div>
+</div>

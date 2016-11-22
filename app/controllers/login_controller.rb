@@ -3,10 +3,11 @@ class LoginController < ApplicationController
     if !session['id']
       session['id'] = 1
     end
-    # session['id'] = 1
     if !session['id2']
       session['id2'] = 10
     end
+
+
   end
   def reg
     puts "Inside the reg method"
@@ -14,12 +15,12 @@ class LoginController < ApplicationController
     redirect_to '/'
   end
   def reg2
-    session['id2'] = 11
+    session['id2'] = 20
     puts "IN reg 2"
     redirect_to :back
   end
   def login
-    session['id'] = 3
+    session['id'] = 30
     puts "Inside the Login method"
     redirect_to '/'
   end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'matches/index'
+
   get 'login/index'
   get '/reg' => 'login#reg'
   get '/reg2' => 'login#reg2'
