@@ -34,7 +34,11 @@ class LoginController < ApplicationController
     redirect_to '/'
   end
   def reset
-    session['id'] = false
+    if params[:player] == 1
+      session[:player1] = false
+    elsif params[:player] == 2
+      session[:player2] = false
+    end
     redirect_to '/'
   end
 

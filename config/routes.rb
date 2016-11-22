@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   post '/reg' => 'login#reg'
   post '/log' => 'login#login'
   post '/reset' => 'login#reset'
-  post '/fight' => 'login#fight'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
