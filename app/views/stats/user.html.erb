@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <h2>Stats for <%= @user.first_name %> <%= @user.last_name %></h2>
+  <ul>
+    <li>Average score: <%= @avgscore %></li>
+    <li>Average opponent's score: <%= @avgopponent %></li>
+    <li>Average score differential: <%= @scorediff %></li>
+    <li>Average winning differential: <%= @windiff %></li>
+  </ul>
+  <% if @matches %>
+    <table>
+      <thead>
+        <th>Player 1</th>
+        <th>Player 1 score</th>
+        <th>Player 2</th>
+        <th>Player 2 score</th>
+        <th>Match Length</th>
+        <th>Game Type</th>
+      </thead>
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.player1 %></td>
+          <td><%= match.score1 %></td>
+          <td><%= match.player2 %></td>
+          <td><%= match.score2 %></td>
+          <td><%= match.length %></td>
+          <td><%= match.gametype %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+</div>
