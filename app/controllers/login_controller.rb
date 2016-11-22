@@ -1,42 +1,51 @@
 class LoginController < ApplicationController
   def index
-    if !session['id']
-      session['id'] = 1
+    if !session[:player1]
+      session[:player1] = false
     end
-    if !session['id2']
-      session['id2'] = 10
+    if !session[:player2]
+      session[:player2] = false
     end
 
 
   end
   def reg
-    puts "Inside the reg method"
-    session['id'] = 2
+    player = User.new(user_params)
+    if player.valid? && params[:player] == 1
+      player.save
+      session[:player1] = player.id
+    elsif player.valid? && params[:player] == 2
+      player.save
+      session[:player2] = player.id
+    else
+      flash[:error] = player.errors.full_messages
+    end
     redirect_to '/'
   end
-  def reg2
-    session['id2'] = 20
-    puts "IN reg 2"
-    redirect_to :back
-  end
   def login
-    session['id'] = 30
-    puts "Inside the Login method"
+    player = User.find_by_pin(params[:pin])
+    if params[:player] == 1
+      if player
+        session[:player1] = player.id
+      end
+    elsif params[:player] == 2
+      if player
+        session[:player2] = player.id
+      end
+    end
     redirect_to '/'
   end
   def reset
-    session['id'] = 1
-    redirect_to :back
-  end
-  def rst2
-    session['id2'] = 10
-    redirect_to :back
-  end
-  def fight
-    pin = User.find_by_pin(params[:pin])
-    if pin
-      puts "Found you"
+    if params[:player] == 1
+      session[:player1] = false
+    elsif params[:player] == 2
+      session[:player2] = false
     end
-    redirect_to :back
+    redirect_to '/'
+  end
+
+  private
+  def user_params
+    params.require(:player).permit(:first_name, :last_name, :email, :pin)
   end
 end

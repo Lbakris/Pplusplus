@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  get 'matches/index'
-
-  get 'login/index'
-  get '/reg' => 'login#reg'
-  get '/reg2' => 'login#reg2'
-  get '/log' => 'login#login'
-  get '/reset' => 'login#reset'
-  get '/rst2' => 'login#rst2'
-  post '/fight' => 'login#fight'
+  get '/' => 'login#index'
+  post '/reg' => 'login#reg'
+  post '/log' => 'login#login'
+  post '/reset' => 'login#reset'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

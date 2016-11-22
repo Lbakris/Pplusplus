@@ -30,6 +30,7 @@
         <br>
         <input type="submit" value="Begin">
       </form>
+      <a href="/reset" id="reset">Reset</a>
       <% end %>
     </div>
 
@@ -39,29 +40,21 @@
 
     <div class="box box2">
       <% if session['id2'] == 10 %>
-        <a class="logins links" href="/log">Login</a>
-        <img id="net" src="/assets/net2.jpg" alt="" />
-        <a href="/reg2" class="links">Register</a>
-        <% end %>
-        <% if session['id2'] == 20 %>
-          <h2>Register Player 2</h2>
-          <form class="" action="index.html" method="post">
-            <p>First Name: <input type="text" name="first_name" value=""></p>
-            <p>Last Name: <input type="text" name="last_name" value=""></p>
-            <p>Email: <input type="text" name="email" value=""></p>
-            <p>Pin: <input type="text" name="" value=""></p>
-          </form>
-          <br>
-          <a href="/reset2" id="reset2">Reset</a>
-        <% end %>
-        <% if session['id2'] == 30 %>
-        <form class="" action="/fight" method="post">
-          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          <p>Pin:</p>
-          <input type="text" name="pin" value="">
-          <br>
-          <input type="submit" value="Begin">
-        </form>
-        <% end %>
-      </div>
+      <a class="logins links" href="#">Login</a>
+      <img id="net" src="/assets/net2.jpg" alt="" />
+      <a href="/reg2" class="links">Register</a>
+      <a id="go" href="/go">Go</a>
+      <% end %>
+      <% if session['id2'] == 11 %>
+      <h1>Register</h1>
+      <form class="" action="index.html" method="post">
+        <p>First Name: <input type="text" name="first_name" value=""></p>
+        <p>Last Name: <input type="text" name="last_name" value=""></p>
+        <p>Email: <input type="text" name="email" value=""></p>
+        <p>Pin: <input type="text" name="" value=""></p>
+      </form>
+      <br>
+      <a href="/rst2">Reset</a>
+      <% end %>
+    </div>
   </div>
